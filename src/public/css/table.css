@@ -3,6 +3,10 @@
   max-width: 100%;
   margin: 2rem auto;
   padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .contacts-header {
@@ -13,21 +17,24 @@
 }
 
 .contacts-title {
+  text-align: center;
   font-size: 1.8rem;
   color: #2c3e50;
   font-weight: 600;
 }
+body{
+  background-color: #007bff;
+}
 
 .contacts-table {
-  width: 100%;
+  width: 70%;
   border-collapse: collapse;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
   overflow: hidden;
 }
 
 .contacts-table thead tr {
-  background-color: #3498db;
+  background-color: rgba(0,0, 0, 0.8);
   color: white;
   text-align: left;
 }
@@ -46,22 +53,17 @@
   background-color: #f8f9fa;
 }
 
+.contacts-table tbody tr:nth-of-type(odd) {
+  background-color: #8db2d7;
+}
+
 .contacts-table tbody tr:last-of-type {
   border-bottom: 2px solid #3498db;
 }
 
-.contacts-table tbody tr:hover {
-  background-color: #e3f2fd;
-  transform: translateX(5px);
-}
-
-.contact-email {
-  color: #2980b9;
-  font-weight: 500;
-}
-
 .contact-date {
-  color: #7f8c8d;
+            background-color: rgba(0, 0, 0, .6);
+            color: white;
   font-size: 0.9rem;
 }
 

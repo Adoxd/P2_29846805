@@ -1,12 +1,14 @@
 .payment-container {
-  font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  max-width: 600px;
+  max-width: 1200px;
+  width: 80vw;
   margin: 2rem auto;
   padding: 1.5rem;
   background: #fff;
-  border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   box-sizing: border-box; /* Añadido para incluir padding en el ancho */
+}
+body{
+  background-color: #007bff;
 }
 .payment-header {
   text-align: center;
@@ -52,7 +54,7 @@
 }
 
 .form-input:focus {
-  border-color: #3498db;
+  border-color: #007bff;
   box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
   outline: none;
 }
@@ -84,11 +86,10 @@
 }
 
 .submit-btn {
-  background-color: #3498db;
+  background-color: #007bff;
   color: white;
   padding: 1rem;
   border: none;
-  border-radius: 8px;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
