@@ -20,6 +20,7 @@
                 <thead>
                     <tr>
                         <th>Nombre</th>
+                        <th>pais</th>
                         <th>Email</th>
                         <th>Comentario</th>
                         <th>IP</th>
@@ -30,7 +31,7 @@
                     <% contacts.forEach(contact => { %>
                         <tr>
                             <td data-label="Nombre"><%= contact.nombre %></td>
-                            <td data-label="Nombre"><%= contact.pais %></td>
+                            <td data-label="Pais"><%= contact.pais %></td>
                             <td data-label="Email" class="contact-email"><%= contact.email %></td>
                             <td data-label="Comentario"><%= contact.comentario %></td>
                             <td data-label="IP" class="contact-ip"><%= contact.ip %></td>
