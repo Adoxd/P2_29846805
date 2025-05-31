@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechFix - Reparación de PC y Laptops</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#inicio" class="logo">TechFix</a>
+            <div class="nav-links">
+                <a href="#servicios">Servicios</a>
+                <a href="#beneficios">Beneficios</a>
+                <a href="/admin/contacts">Contacto</a>
+                <a href="/getPayment">Pagos</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Hero -->
+    <section id="inicio" class="hero">
+        <div class="overlay">
+            <div class="container">
+                <h1>Reparación Profesional de Computadoras</h1>
+                <p>Servicio rápido y confiable con garantía incluida</p>
+                <a href="#contacto" class="btn">Solicitar Servicio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Servicios -->
+    <section id="servicios" class="section">
+        <div class="container">
+            <h2>Nuestros Servicios</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed" alt="Reparación hardware">
+                    <h3>Reparación de Hardware</h3>
+                    <p>Cambio de componentes, limpieza interna y mantenimiento preventivo</p>
+                    <a href="/payment" class="btn">Pagar servicio</a>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f" alt="Soporte software">
+                    <h3>Soporte de Software</h3>
+                    <p>Instalación de sistemas operativos, eliminación de virus y optimización</p>
+                    <a href="/payment" class="btn">Pagar servicio</a>
+                </div>
+                <div class="card">
+<img src="https://images.unsplash.com/photo-1518773553398-650c184e0bb3" alt="Recuperación datos">
+                    <h3>Recuperación de Datos</h3>
+                    <p>Recuperamos tus archivos importantes de discos dañados</p>
+                    <a href="/payment" class="btn">Pagar servicio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Beneficios -->
+    <section id="beneficios" class="section benefits">
+        <div class="container">
+            <h2>Ventajas de Elegirnos</h2>
+            <div class="grid">
+                <div class="benefit-item">
+                    <i class="fas fa-tools"></i>
+                    <h3>Servicio en 24hrs</h3>
+                    <p>Respuesta inmediata para emergencias técnicas</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Garantía de 90 días</h3>
+                    <p>Todas nuestras reparaciones incluyen garantía</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3>Precios Competitivos</h3>
+                    <p>Presupuesto sin cargo y precios transparentes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario de Contacto -->
+    <section id="contacto" class="section contact">
+        <div class="container">
+            <h2>Contacto Rápido</h2>
+            <form id="formulario" class="contact-form">
+                <input type="text" id="nombre" placeholder="Nombre" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <textarea id="comentario" placeholder="Describe tu problema..." required></textarea>
+                <button type="submit" class="btn">Enviar Consulta</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p>&copy; 2023 TechFix - Todos los derechos reservados</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src='/js/animacion.js'></script>
+    <script src='/js/fetch.js'></script>
+    <script src="/js/desplegable.js"></script>
+</body>
+</html>
