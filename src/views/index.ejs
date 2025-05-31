@@ -99,9 +99,9 @@
         <div class="container">
             <h2>Contacto Rápido</h2>
             <form id="formulario" class="contact-form">
-                <input type="text" id="nombre" placeholder="Nombre" required>
-                <input type="email" id="email" placeholder="Email" required>
-                <textarea id="comentario" placeholder="Describe tu problema..." required></textarea>
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <textarea id="comentario" name="comentario" placeholder="Describe tu problema..." required></textarea>
                 <!-- reCAPTCHA -->
                 <div class="g-recaptcha" data-sitekey="<%=sitioKey%>"></div>
                 <button type="submit" class="btn">Enviar Consulta</button>
