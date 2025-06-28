@@ -3,26 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="<%= title %>">
+    <meta property="og:description" content="<%= description %>">
+    <meta property="og:image" content="<%= imageUrl %>">
+    <meta property="og:url" content="<%= pageUrl %>"> 
     <title>TechFix - Reparación de PC y Laptops</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <script src="/js/alertConfig.js"></script>
-   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8B712ZZ6XK"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZH5DRFK9Y"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-8B712ZZ6XK');
+  gtag('config', 'G-8ZH5DRFK9Y');
 </script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar">
+<nav class="navbar">
         <div class="container">
             <a href="#inicio" class="logo">TechFix</a>
             <div class="nav-links">
@@ -30,6 +34,10 @@
                 <a href="#beneficios">Beneficios</a>
                 <a href="/admin/contacts">Contacto</a>
                 <a href="/getPayment">Pagos</a>
+                <a href="/login?form=login">Login</a>
+                <% if(isAdmin){%>
+                <a href="/logout">Cerrar</a>
+                <% } %>
             </div>
         </div>
     </nav>

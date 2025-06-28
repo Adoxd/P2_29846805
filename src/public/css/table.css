@@ -72,6 +72,25 @@ body{
   color: #e74c3c;
 }
 
+/* Formulario */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact-form textarea {
+    height: 150px;
+}
+
 @media screen and (max-width: 768px) {
   .contacts-table {
     border: 0;
