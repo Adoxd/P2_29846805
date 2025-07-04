@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="<%= title %>">
-    <meta property="og:description" content="<%= description %>">
-    <meta property="og:image" content="<%= imageUrl %>">
-    <meta property="og:url" content="<%= pageUrl %>"> 
-    <title>TechFix - Reparación de PC y Laptops</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="<%= title %>">
+  <meta property="og:description" content="<%= description %>">
+  <meta property="og:image" content="<%= imageUrl %>">
+  <meta property="og:url" content="<%= pageUrl %>"> 
+  <title>TechFix - Reparación de PC y Laptops</title>
+  <link rel="stylesheet" href="css/styles.css">
+   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <script src="/js/alertConfig.js"></script>
+  <script src="/js/alertConfig.js"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZH5DRFK9Y"></script>
 <script>
@@ -21,118 +22,169 @@
 
   gtag('config', 'G-8ZH5DRFK9Y');
 </script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 </head>
 <body>
-    <!-- Navbar -->
-<nav class="navbar">
-        <div class="container">
-            <a href="#inicio" class="logo">TechFix</a>
-            <div class="nav-links">
-                <a href="#servicios">Servicios</a>
-                <a href="#beneficios">Beneficios</a>
-                <a href="/admin/contacts">Contacto</a>
-                <a href="/getPayment">Pagos</a>
-                <a href="/login?form=login">Login</a>
-                <% if(isAdmin){%>
-                <a href="/logout">Cerrar</a>
-                <% } %>
-            </div>
-        </div>
-    </nav>
+ <!-- Navbar -->
+ <nav class="bg-white border-b border-gray-200 shadow-md">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <a href="#inicio" class="text-xl font-bold text-blue-600">TechFix</a>
 
-    <!-- Sección Hero -->
-    <section id="inicio" class="hero">
-        <div class="overlay">
-            <div class="container">
-                <h1>Reparación Profesional de Computadoras</h1>
-                <p>Servicio rápido y confiable con garantía incluida</p>
-                <a href="#contacto" class="btn">Solicitar Servicio</a>
-            </div>
-        </div>
-    </section>
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button id="menu-toggle" class="text-gray-600 focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+               viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
 
-    <!-- Sección Servicios -->
-    <section id="servicios" class="section">
-        <div class="container">
-            <h2>Nuestros Servicios</h2>
-            <div class="grid">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed" alt="Reparación hardware">
-                    <h3>Reparación de Hardware</h3>
-                    <p>Cambio de componentes, limpieza interna y mantenimiento preventivo</p>
-                    <a href="/payment" class="btn">Pagar servicio</a>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f" alt="Soporte software">
-                    <h3>Soporte de Software</h3>
-                    <p>Instalación de sistemas operativos, eliminación de virus y optimización</p>
-                    <a href="/payment" class="btn">Pagar servicio</a>
-                </div>
-                <div class="card">
-<img src="https://images.unsplash.com/photo-1518773553398-650c184e0bb3" alt="Recuperación datos">
-                    <h3>Recuperación de Datos</h3>
-                    <p>Recuperamos tus archivos importantes de discos dañados</p>
-                    <a href="/payment" class="btn">Pagar servicio</a>
-                </div>
-            </div>
+      <!-- Nav Links -->
+      <div id="nav-links" class="hidden md:flex md:items-center md:space-x-6">
+        <a href="#servicios" class="text-gray-700 hover:text-blue-600 transition"><%= __('index.nav.servicios') %></a>
+        <a href="#beneficios" class="text-gray-700 hover:text-blue-600 transition"><%= __('index.nav.beneficios') %></a>
+        <a href="/admin/contacts" class="text-gray-700 hover:text-blue-600 transition"><%= __('index.nav.contacto') %></a>
+        <a href="/getPayment" class="text-gray-700 hover:text-blue-600 transition"><%= __('index.nav.pagos') %></a>
+        <a href="/login?form=login" class="text-gray-700 hover:text-blue-600 transition"><%= __('index.nav.login') %></a>
+        <% if(isAdmin) { %>
+        <a href="/logout" class="text-red-600 hover:text-red-800 transition"><%= __('index.nav.cerrar') %></a>
+        <% } %>
+        <!-- Language Switcher -->
+        <div class="flex gap-2 mt-2 md:mt-0">
+          <a href="/?lang=es" class="inline-flex items-center px-3 py-1.5 rounded-md bg-white text-gray-700 border border-gray-300 shadow-sm hover:bg-blue-100 hover:text-blue-700 text-sm">
+            🇪🇸 <span class="ml-1">Español</span>
+          </a>
+          <a href="/?lang=en" class="inline-flex items-center px-3 py-1.5 rounded-md bg-white text-gray-700 border border-gray-300 shadow-sm hover:bg-blue-100 hover:text-blue-700 text-sm">
+            🇺🇸 <span class="ml-1">English</span>
+          </a>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
 
-    <!-- Sección Beneficios -->
-    <section id="beneficios" class="section benefits">
-        <div class="container">
-            <h2>Ventajas de Elegirnos</h2>
-            <div class="grid">
-                <div class="benefit-item">
-                    <i class="fas fa-tools"></i>
-                    <h3>Servicio en 24hrs</h3>
-                    <p>Respuesta inmediata para emergencias técnicas</p>
-                </div>
-                <div class="benefit-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Garantía de 90 días</h3>
-                    <p>Todas nuestras reparaciones incluyen garantía</p>
-                </div>
-                <div class="benefit-item">
-                    <i class="fas fa-dollar-sign"></i>
-                    <h3>Precios Competitivos</h3>
-                    <p>Presupuesto sin cargo y precios transparentes</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobile-menu" class="md:hidden hidden px-4 pt-4 pb-6 space-y-2">
+    <a href="#servicios" class="block text-gray-700 hover:text-blue-600"><%= __('index.nav.servicios') %></a>
+    <a href="#beneficios" class="block text-gray-700 hover:text-blue-600"><%= __('index.nav.beneficios') %></a>
+    <a href="/admin/contacts" class="block text-gray-700 hover:text-blue-600"><%= __('index.nav.contacto') %></a>
+    <a href="/getPayment" class="block text-gray-700 hover:text-blue-600"><%= __('index.nav.pagos') %></a>
+    <a href="/login?form=login" class="block text-gray-700 hover:text-blue-600"><%= __('index.nav.login') %></a>
+    <% if(isAdmin) { %>
+    <a href="/logout" class="block text-red-600 hover:text-red-800"><%= __('index.nav.cerrar') %></a>
+    <% } %>
+    <!-- Language Switcher Mobile -->
+    <div class="flex gap-2 pt-2">
+      <a href="/getPayment?lang=es" class="inline-flex items-center px-3 py-1.5 rounded-md bg-white text-gray-700 border border-gray-300 shadow-sm hover:bg-blue-100 hover:text-blue-700 text-sm">
+        🇪🇸 <span class="ml-1">Español</span>
+      </a>
+      <a href="/getPayment?lang=en" class="inline-flex items-center px-3 py-1.5 rounded-md bg-white text-gray-700 border border-gray-300 shadow-sm hover:bg-blue-100 hover:text-blue-700 text-sm">
+        🇺🇸 <span class="ml-1">English</span>
+      </a>
+    </div>
+  </div>
+</nav>
 
-    <!-- Formulario de Contacto -->
-    <section id="contacto" class="section contact">
-        <div class="container">
-            <h2>Contacto Rápido</h2>
-            <form id="formulario" class="contact-form">
-                <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
-                <input type="email" id="email" name="email" placeholder="Email" required>
-                <textarea id="comentario" name="comentario" placeholder="Describe tu problema..." required></textarea>
-                <!-- reCAPTCHA -->
-                <div class="g-recaptcha" data-sitekey="<%=sitioKey%>"></div>
-                <button type="submit" class="btn">Enviar Consulta</button>
-            </form>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
-            </div>
-            <p>&copy; 2023 TechFix - Todos los derechos reservados</p>
-        </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src='/js/animacion.js'></script>
-    <script src='/js/fetch.js'></script>
-    <script src="/js/desplegable.js"></script>
+<!-- Sección Hero -->
+<section id="inicio" class="hero relative bg-cover bg-center min-h-screen flex items-center justify-center">
+  <div class="overlay absolute inset-0 bg-black bg-opacity-60 z-0"></div>
+  <div class="container relative z-10 px-4 text-center text-white max-w-4xl mx-auto">
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+      <%= __('index.hero.titulo') %>
+    </h1>
+    <p class="text-lg md:text-xl lg:text-2xl mb-6">
+      <%= __('index.hero.subtitulo') %>
+    </p>
+    <a href="#contacto" class="btn inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300">
+      <%= __('index.hero.boton') %>
+    </a>
+  </div>
+</section>
+
+
+<!-- Sección Servicios -->
+<section id="servicios" class="section">
+  <div class="container">
+    <h2><%= __('index.servicios.titulo') %></h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed" alt="Reparación hardware">
+        <h3><%= __('index.servicios.hardware.titulo') %></h3>
+        <p><%= __('index.servicios.hardware.descripcion') %></p>
+        <a href="/payment" class="btn"><%= __('index.servicios.boton') %></a>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f" alt="Soporte software">
+        <h3><%= __('index.servicios.software.titulo') %></h3>
+        <p><%= __('index.servicios.software.descripcion') %></p>
+        <a href="/payment" class="btn"><%= __('index.servicios.boton') %></a>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1518773553398-650c184e0bb3" alt="Recuperación datos">
+        <h3><%= __('index.servicios.datos.titulo') %></h3>
+        <p><%= __('index.servicios.datos.descripcion') %></p>
+        <a href="/payment" class="btn"><%= __('index.servicios.boton') %></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección Beneficios -->
+<section id="beneficios" class="section benefits">
+  <div class="container">
+    <h2><%= __('index.beneficios.titulo') %></h2>
+    <div class="grid">
+      <div class="benefit-item">
+        <i class="fas fa-tools"></i>
+        <h3><%= __('index.beneficios.item1.titulo') %></h3>
+        <p><%= __('index.beneficios.item1.descripcion') %></p>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-shield-alt"></i>
+        <h3><%= __('index.beneficios.item2.titulo') %></h3>
+        <p><%= __('index.beneficios.item2.descripcion') %></p>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-dollar-sign"></i>
+        <h3><%= __('index.beneficios.item3.titulo') %></h3>
+        <p><%= __('index.beneficios.item3.descripcion') %></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Formulario de Contacto -->
+<section id="contacto" class="section contact">
+  <div class="container">
+    <h2><%= __('index.contacto.titulo') %></h2>
+    <form id="formulario" class="contact-form">
+      <input type="text" name="nombre" id="nombre" placeholder="<%= __('index.contacto.nombre') %>" required>
+      <input type="email" id="email" name="email" placeholder="<%= __('index.contacto.email') %>" required>
+      <textarea id="comentario" name="comentario" placeholder="<%= __('index.contacto.comentario') %>" required></textarea>
+      <div class="g-recaptcha" data-sitekey="<%= sitioKey %>"></div>
+      <button type="submit" class="btn"><%= __('index.contacto.boton') %></button>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="social-links">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2023 TechFix - <%= __('index.footer.derechos') %></p>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src='/js/animacion.js'></script>
+<script src='/js/fetch.js'></script>
+<script src="/js/desplegable.js"></script>
 </body>
 </html>

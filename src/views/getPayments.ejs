@@ -36,108 +36,108 @@
     </style>
 </head>
 <body>
+    <div class="flex justify-center gap-4 mb-6">
+  <a href="/getPayment?lang=es" class="inline-flex items-center px-4 py-2 rounded-lg bg-white text-gray-700 border border-gray-300 shadow-sm hover:bg-blue-100 hover:text-blue-700 transition-colors duration-200">
+    🇪🇸 <span class="ml-2">Español</span>
+  </a>
+  <a href="/getPayment?lang=en" class="inline-flex items-center px-4 py-2 rounded-lg bg-white text-gray-700 border border-gray-300 shadow-sm hover:bg-blue-100 hover:text-blue-700 transition-colors duration-200">
+    🇺🇸 <span class="ml-2">English</span>
+  </a>
+</div>
 
+    <form id="filterForm" class="mb-6 w-full max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+  <input id="searchInput" type="text" placeholder="<%= __('pagos.buscar_placeholder') %>" class="col-span-1 md:col-span-2 px-4 py-2 border rounded-lg w-full" />
 
-        <form id="filterForm" class="mb-6 w-full max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
-  <input id="searchInput" type="text" placeholder="Buscar por nombre o correo" class="col-span-1 md:col-span-2 px-4 py-2 border rounded-lg w-full" />
-  
   <select id="estadoSelect" class="px-4 py-2 border rounded-lg">
-    <option value="">Todos los estados</option>
-    <option value="aprobado">Aprobado</option>
-    <option value="rechazado">Rechazado</option>
-    <option value="pendiente">Pendiente</option>
+    <option value=""><%= __('pagos.filtro_estado.todos') %></option>
+    <option value="aprobado"><%= __('pagos.filtro_estado.aprobado') %></option>
+    <option value="rechazado"><%= __('pagos.filtro_estado.rechazado') %></option>
+    <option value="pendiente"><%= __('pagos.filtro_estado.pendiente') %></option>
   </select>
 
   <select id="servicioSelect" class="px-4 py-2 border rounded-lg">
-    <option value="">Todos los servicios</option>
-    <option value="Suscripción Mensual">Suscripción Mensual</option>
-    <option value="Suscripción Anual">Suscripción Anual</option>
-    <!-- agrega más según tus servicios -->
+    <option value=""><%= __('pagos.filtro_servicio.todos') %></option>
+    <option value="Suscripción Mensual"><%= __('pagos.filtro_servicio.mensual') %></option>
+    <option value="Suscripción Anual"><%= __('pagos.filtro_servicio.anual') %></option>
   </select>
 
   <input type="date" id="fechaInicio" class="px-4 py-2 border rounded-lg" />
   <input type="date" id="fechaFin" class="px-4 py-2 border rounded-lg" />
-
 </form>
 
-    <div id="contactsContainer" >
-    <div class="contacts-container">
-        <div class="contacts-header">
-            <h1 class="contacts-title">Registros de Pagos </i></h1>
-        </div>
-
-        <% if (datePayments.length > 0) { %>
-            <table class="contacts-table">
-                <thead>
-                    <tr>
-                        <th>Titular</th>
-                        <th>Correo</th>
-                        <th>Descripcion</th>
-                        <th>Tarjeta</th>
-                        <th>Expiración</th>
-                        <th>Moneda</th>
-                        <th>Monto</th>
-                        <th>Referencia</th>
-                        <th>Fecha</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% datePayments.forEach(payment => { %>
-                        <tr>
-                            <td data-label="Titular"><%= payment.nombreTitular %></td>
-                            <td data-label="Correo" class="contact-email"><%= payment.correo %></td>
-                            <td data-label="Correo" class="contact-email"><%=payment.descripcion%></td>
-                            <td data-label="Tarjeta">
-                                <div class="card-details">
-                                    <span class="card-number">•••• •••• •••• <%= payment.cardNumber.slice(-4) %></span>
-                                    <span class="card-type">
-                                        <% if (['4'].includes(payment.cardNumber.charAt(0))) { %>
-                                            <i class="fab fa-cc-visa"></i>
-                                        <% } else if (['5'].includes(payment.cardNumber.charAt(0))) { %>
-                                            <i class="fab fa-cc-mastercard"></i>
-                                        <% } else if (['3'].includes(payment.cardNumber.charAt(0))) { %>
-                                            <i class="fab fa-cc-amex"></i>
-                                        <% } else { %>
-                                            <i class="fas fa-credit-card"></i>
-                                        <% } %>
-                                    </span>
-                                </div>
-                            </td>
-                            <td data-label="Expiración" class="card-expiry">
-                                <%= payment.expMonth %>/<%= payment.expYear.toString().slice(-2) %>
-                            </td>
-                            <td data-label="Moneda" class="currency">
-                                <% if (payment.currency === 'USD') { %>
-                                    $ USD
-                                <% } else if (payment.currency === 'EUR') { %>
-                                    € EUR
-                                <% } else if (payment.currency === 'GBP') { %>
-                                    £ GBP
-                                <% } else { %>
-                                    <%= payment.currency %>
-                                <% } %>
-                            </td>
-                            <td>
-                                <%=payment.amount%>
-                            </td>
-                            <td>
-                                <%=payment.reference%>
-                            </td>
-                            <td data-label="Fecha" class="contact-date">
-                                <%= new Date(payment.createdAt).toLocaleDateString() %>
-                                <br>
-                                <%= new Date(payment.createdAt).toLocaleTimeString() %>
-                            </td>
-
-                        </tr>
-                    <% }); %>
-                </tbody>
-            </table>
-        <% } else { %>
-            <p>No hay registros de pagos disponibles.</p>
-        <% } %>
+<div id="contactsContainer">
+  <div class="contacts-container">
+    <div class="contacts-header">
+      <h1 class="contacts-title"><%= __('pagos.titulo') %></h1>
     </div>
-    </div>
+
+    <% if (datePayments.length > 0) { %>
+    <table class="contacts-table">
+      <thead>
+        <tr>
+          <th><%= __('pagos.titular') %></th>
+          <th><%= __('pagos.correo') %></th>
+          <th><%= __('pagos.descripcion') %></th>
+          <th><%= __('pagos.tarjeta') %></th>
+          <th><%= __('pagos.expiracion') %></th>
+          <th><%= __('pagos.moneda') %></th>
+          <th><%= __('pagos.monto') %></th>
+          <th><%= __('pagos.referencia') %></th>
+          <th><%= __('pagos.fecha') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% datePayments.forEach(payment => { %>
+        <tr>
+          <td data-label="<%= __('pagos.titular') %>"><%= payment.nombreTitular %></td>
+          <td data-label="<%= __('pagos.correo') %>" class="contact-email"><%= payment.correo %></td>
+          <td data-label="<%= __('pagos.descripcion') %>" class="contact-email"><%= payment.descripcion %></td>
+          <td data-label="<%= __('pagos.tarjeta') %>">
+            <div class="card-details">
+              <span class="card-number">•••• •••• •••• <%= payment.cardNumber.slice(-4) %></span>
+              <span class="card-type">
+                <% if (['4'].includes(payment.cardNumber.charAt(0))) { %>
+                <i class="fab fa-cc-visa"></i>
+                <% } else if (['5'].includes(payment.cardNumber.charAt(0))) { %>
+                <i class="fab fa-cc-mastercard"></i>
+                <% } else if (['3'].includes(payment.cardNumber.charAt(0))) { %>
+                <i class="fab fa-cc-amex"></i>
+                <% } else { %>
+                <i class="fas fa-credit-card"></i>
+                <% } %>
+              </span>
+            </div>
+          </td>
+          <td data-label="<%= __('pagos.expiracion') %>" class="card-expiry">
+            <%= payment.expMonth %>/<%= payment.expYear.toString().slice(-2) %>
+          </td>
+          <td data-label="<%= __('pagos.moneda') %>" class="currency">
+            <% if (payment.currency === 'USD') { %>
+            $ USD
+            <% } else if (payment.currency === 'EUR') { %>
+            € EUR
+            <% } else if (payment.currency === 'GBP') { %>
+            £ GBP
+            <% } else { %>
+            <%= payment.currency %>
+            <% } %>
+          </td>
+          <td><%= payment.amount %></td>
+          <td><%= payment.reference %></td>
+          <td data-label="<%= __('pagos.fecha') %>" class="contact-date">
+            <%= new Date(payment.createdAt).toLocaleDateString() %><br>
+            <%= new Date(payment.createdAt).toLocaleTimeString() %>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <% } else { %>
+    <p><%= __('pagos.no_registros') %></p>
+    <% } %>
+  </div>
+</div>
+
 <script src="/js/filterPayment.js"></script>
 </body>
 </html>

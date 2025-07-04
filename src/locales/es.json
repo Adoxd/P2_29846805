@@ -1,0 +1,130 @@
+{
+  "index": {
+    "nav": {
+      "servicios": "Servicios",
+      "beneficios": "Beneficios",
+      "contacto": "Contacto",
+      "pagos": "Pagos",
+      "login": "Inicio",
+      "cerrar": "Cerrar"
+    },
+    "hero": {
+      "titulo": "Reparación Profesional de Computadoras",
+      "subtitulo": "Servicio rápido y confiable con garantía incluida",
+      "boton": "Solicitar Servicio"
+    },
+    "servicios": {
+      "titulo": "Nuestros Servicios",
+      "hardware": {
+        "titulo": "Reparación de Hardware",
+        "descripcion": "Cambio de componentes, limpieza interna y mantenimiento preventivo"
+      },
+      "software": {
+        "titulo": "Soporte de Software",
+        "descripcion": "Instalación de sistemas operativos, eliminación de virus y optimización"
+      },
+      "datos": {
+        "titulo": "Recuperación de Datos",
+        "descripcion": "Recuperamos tus archivos importantes de discos dañados"
+      },
+      "boton": "Pagar servicio"
+    },
+    "beneficios": {
+      "titulo": "Ventajas de Elegirnos",
+      "item1": {
+        "titulo": "Servicio en 24hrs",
+        "descripcion": "Respuesta inmediata para emergencias técnicas"
+      },
+      "item2": {
+        "titulo": "Garantía de 90 días",
+        "descripcion": "Todas nuestras reparaciones incluyen garantía"
+      },
+      "item3": {
+        "titulo": "Precios Competitivos",
+        "descripcion": "Presupuesto sin cargo y precios transparentes"
+      }
+    },
+    "contacto": {
+      "titulo": "Contacto Rápido",
+      "nombre": "Nombre",
+      "email": "Email",
+      "comentario": "Describe tu problema...",
+      "boton": "Enviar Consulta"
+    },
+    "footer": {
+      "derechos": "Todos los derechos reservados"
+    }
+  },
+  "auth":{
+    "loginTab": "Iniciar Sesión",
+    "registerTab": "Registrarse",
+    "welcomeBack": "Bienvenido de vuelta",
+    "createAccount": "Crea tu cuenta",
+    "email": "Correo Electrónico",
+    "emailPlaceholder": "tucorreo@ejemplo.com",
+    "password": "Contraseña",
+    "passwordPlaceholder": "••••••••",
+    "rememberMe": "Recordarme",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "loginButton": "Ingresar",
+    "orContinueWith": "O continúa con",
+    "fullName": "Nombre Completo",
+    "namePlaceholder": "Juan Pérez",
+    "confirmPassword": "Confirmar",
+    "acceptTerms": "Acepto los",
+    "termsAndConditions": "Términos y Condiciones",
+    "registerButton": "Registrarse"
+  },
+  "contacto": {
+    "buscar_placeholder": "Buscar por nombre o correo...",
+    "titulo": "Registros de Contacto",
+    "nombre": "Nombre",
+    "pais": "País",
+    "email": "Email",
+    "comentario": "Comentario",
+    "ip": "IP",
+    "fecha": "Fecha",
+    "no_registros": "No hay registros de contactos disponibles."
+  },
+  "pagos": {
+    "buscar_placeholder": "Buscar por nombre o correo",
+    "filtro_estado": {
+      "todos": "Todos los estados",
+      "aprobado": "Aprobado",
+      "rechazado": "Rechazado",
+      "pendiente": "Pendiente"
+    },
+    "filtro_servicio": {
+      "todos": "Todos los servicios",
+      "mensual": "Suscripción Mensual",
+      "anual": "Suscripción Anual"
+    },
+    "titulo": "Registros de Pagos",
+    "titular": "Titular",
+    "correo": "Correo",
+    "descripcion": "Descripción",
+    "tarjeta": "Tarjeta",
+    "expiracion": "Expiración",
+    "moneda": "Moneda",
+    "monto": "Monto",
+    "referencia": "Referencia",
+    "fecha": "Fecha",
+    "no_registros": "No hay registros de pagos disponibles."
+  },
+  "payment": {
+    "title": "Registro de Pago",
+    "expiration_date": "Fecha de Expiración",
+    "month": "Mes",
+    "year": "Año",
+    "security_code": "Código de Seguridad",
+    "description": "Descripción",
+    "description_placeholder": "Ingresa Descripción",
+    "cardholder": "Nombre del Titular",
+    "cardholder_placeholder": "Adolfo Hitler",
+    "card_number": "Número de Tarjeta",
+    "email": "Correo Electrónico",
+    "email_placeholder": "adolfo@hitler.com",
+    "amount": "Monto a Pagar",
+    "pay": "Pagar"
+  }
+}

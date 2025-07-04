@@ -1,0 +1,130 @@
+{
+  "index": {
+    "nav": {
+      "servicios": "Services",
+      "beneficios": "Benefits",
+      "contacto": "Contact",
+      "pagos": "Payments",
+      "login": "Login",
+      "cerrar": "Logout"
+    },
+    "hero": {
+      "titulo": "Professional Computer Repair",
+      "subtitulo": "Fast and reliable service with warranty included",
+      "boton": "Request Service"
+    },
+    "servicios": {
+      "titulo": "Our Services",
+      "hardware": {
+        "titulo": "Hardware Repair",
+        "descripcion": "Component replacement, internal cleaning, and preventive maintenance"
+      },
+      "software": {
+        "titulo": "Software Support",
+        "descripcion": "OS installation, virus removal, and optimization"
+      },
+      "datos": {
+        "titulo": "Data Recovery",
+        "descripcion": "We recover your important files from damaged drives"
+      },
+      "boton": "Pay for service"
+    },
+    "beneficios": {
+      "titulo": "Why Choose Us",
+      "item1": {
+        "titulo": "24hr Service",
+        "descripcion": "Immediate response for technical emergencies"
+      },
+      "item2": {
+        "titulo": "90-Day Warranty",
+        "descripcion": "All our repairs come with a warranty"
+      },
+      "item3": {
+        "titulo": "Competitive Prices",
+        "descripcion": "Free estimates and transparent pricing"
+      }
+    },
+    "contacto": {
+      "titulo": "Quick Contact",
+      "nombre": "Name",
+      "email": "Email",
+      "comentario": "Describe your issue...",
+      "boton": "Send Inquiry"
+    },
+    "footer": {
+      "derechos": "All rights reserved"
+    }
+  },
+  "auth":{
+    "loginTab": "Login",
+    "registerTab": "Register",
+    "welcomeBack": "Welcome back",
+    "createAccount": "Create your account",
+    "email": "Email",
+    "emailPlaceholder": "your@email.com",
+    "password": "Password",
+    "passwordPlaceholder": "••••••••",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot your password?",
+    "loginButton": "Sign In",
+    "orContinueWith": "Or continue with",
+    "fullName": "Full Name",
+    "namePlaceholder": "John Doe",
+    "confirmPassword": "Confirm",
+    "acceptTerms": "I accept the",
+    "termsAndConditions": "Terms and Conditions",
+    "registerButton": "Register"
+  },
+  "contacto": {
+    "buscar_placeholder": "Search by name or email...",
+    "titulo": "Contact Records",
+    "nombre": "Name",
+    "pais": "Country",
+    "email": "Email",
+    "comentario": "Comment",
+    "ip": "IP",
+    "fecha": "Date",
+    "no_registros": "No contact records available."
+  },
+  "pagos":{
+    "buscar_placeholder": "Search by name or email",
+    "filtro_estado": {
+      "todos": "All statuses",
+      "aprobado": "Approved",
+      "rechazado": "Rejected",
+      "pendiente": "Pending"
+    },
+    "filtro_servicio": {
+      "todos": "All services",
+      "mensual": "Monthly Subscription",
+      "anual": "Annual Subscription"
+    },
+    "titulo": "Payment Records",
+    "titular": "Cardholder",
+    "correo": "Email",
+    "descripcion": "Description",
+    "tarjeta": "Card",
+    "expiracion": "Expiration",
+    "moneda": "Currency",
+    "monto": "Amount",
+    "referencia": "Reference",
+    "fecha": "Date",
+    "no_registros": "No payment records available."
+  },
+  "payment": {
+    "title": "Payment Registration",
+    "expiration_date": "Expiration Date",
+    "month": "Month",
+    "year": "Year",
+    "security_code": "Security Code",
+    "description": "Description",
+    "description_placeholder": "Enter Description",
+    "cardholder": "Cardholder Name",
+    "cardholder_placeholder": "Adolf Hitler",
+    "card_number": "Card Number",
+    "email": "Email",
+    "email_placeholder": "adolf@hitler.com",
+    "amount": "Amount to Pay",
+    "pay": "Pay"
+  }
+}

@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="/css/styles.css">
   <title>Autenticación</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/css/auth.css">
   <script src="js/alertConfig.js"></script>
   <style>
@@ -27,122 +28,121 @@
   </style>
 </head>
 <body>
-    <nav class="navbar" style="position: relative;" >
-        <div class="container">
-            <a href="/" class="logo">TechFix</a>
-            <div class="nav-links">
-                <a href="/admin/contacts">Contacto</a>
-                <a href="/getPayment">Pagos</a>
-            </div>
-        </div>
-    </nav>
+    <nav class="navbar" style="position: relative;">
+  <div class="container">
+    <a href="/" class="logo">TechFix</a>
+    <div class="nav-links">
+      <a href="/admin/contacts"><%= __('Contacto') %></a>
+      <a href="/getPayment"><%= __('Pagos') %></a>
+    </div>
+  </div>
+</nav>
 
-  <div class="auth-container">
-    <div class="auth-switcher">
-      <button 
+<div class="flex justify-center gap-4 mb-6">
+  <a href="/getPayment?lang=es" class="inline-flex items-center px-4 py-2 rounded-lg bg-white text-gray-700 border border-gray-300 shadow-sm hover:bg-blue-100 hover:text-blue-700 transition-colors duration-200">
+    🇪🇸 <span class="ml-2">Español</span>
+  </a>
+  <a href="/getPayment?lang=en" class="inline-flex items-center px-4 py-2 rounded-lg bg-white text-gray-700 border border-gray-300 shadow-sm hover:bg-blue-100 hover:text-blue-700 transition-colors duration-200">
+    🇺🇸 <span class="ml-2">English</span>
+  </a>
+</div>
+
+
+<div class="auth-container">
+  <div class="auth-switcher">
+    <button 
       class="auth-btn <%= formType === 'login' ? 'active' : '' %>" 
-      onclick="switchForm('login')"
-      >
-      Iniciar Sesión
+      onclick="switchForm('login')">
+      <%= __('auth.loginTab') %>
     </button>
     <button 
-    class="auth-btn <%= formType === 'register' ? 'active' : '' %>" 
-    onclick="switchForm('register')"
-    >
-    Registrarse
-  </button>
+      class="auth-btn <%= formType === 'register' ? 'active' : '' %>" 
+      onclick="switchForm('register')">
+      <%= __('auth.registerTab') %>
+    </button>
+  </div>
+
+  <% if (formType === 'login') { %>
+  <form id="formLogin" class="auth-form">
+    <h2><%= __('auth.loginTab') %></h2>
+
+    <div class="form-group">
+      <label for="login-email"><%= __('auth.email') %></label>
+      <input 
+        type="email" 
+        id="login-email" 
+        name="email" 
+        required
+        placeholder="<%= __('auth.emailPlaceholder') %>">
+    </div>
+
+    <div class="form-group">
+      <label for="login-password"><%= __('auth.password') %></label>
+      <input 
+        type="password" 
+        id="login-password" 
+        name="password" 
+        required
+        placeholder="<%= __('auth.passwordPlaceholder') %>">
+    </div>
+
+    <a href="/auth/google" class="bg-red-500 text-white px-4 py-2 rounded">
+      <%= __('auth.orContinueWith') %> Google
+    </a>
+
+    <button type="submit" class="submit-btn"><%= __('auth.loginButton') %></button>
+  </form>
+
+  <% } else { %>
+  <form id="formRegister" class="auth-form">
+    <h2><%= __('auth.createAccount') %></h2>
+
+    <div class="form-group">
+      <label for="register-name"><%= __('auth.fullName') %></label>
+      <input 
+        type="text" 
+        id="username" 
+        name="username" 
+        required
+        placeholder="<%= __('auth.namePlaceholder') %>">
+    </div>
+
+    <div class="form-group">
+      <label for="register-email"><%= __('auth.email') %></label>
+      <input 
+        type="email" 
+        id="register-email" 
+        name="email" 
+        required
+        placeholder="<%= __('auth.emailPlaceholder') %>">
+    </div>
+
+    <div class="form-group">
+      <label for="register-password"><%= __('auth.password') %></label>
+      <input 
+        type="password" 
+        id="register-password" 
+        name="password_hash" 
+        required
+        placeholder="<%= __('auth.passwordPlaceholder') %>"
+        minlength="6">
+    </div>
+
+    <div class="form-group">
+      <label for="register-confirm"><%= __('auth.confirmPassword') %></label>
+      <input 
+        type="password" 
+        id="register-confirm" 
+        name="passwordHash" 
+        required
+        placeholder="<%= __('auth.passwordPlaceholder') %>">
+    </div>
+
+    <button type="submit" class="submit-btn"><%= __('auth.registerButton') %></button>
+  </form>
+  <% } %>
 </div>
 
-<% if (formType === 'login'){%>
-
-
-  
-<form id='formLogin' class="auth-form">
-  <h2>Iniciar Sesión</h2>
-
-  <div class="form-group">
-    <label for="login-email">Correo Electrónico</label>
-    <input 
-    type="email" 
-    id="login-email" 
-    name="email" 
-    required
-    placeholder="tucorreo@ejemplo.com"
-    >
-  </div>
-
-  <div class="form-group">
-    <label for="login-password">Contraseña</label>
-    <input 
-    type="password" 
-    id="login-password" 
-    name="password" 
-    required
-    placeholder="••••••••"
-    >
-  </div>
-
-  <a href="/auth/google" class="bg-red-500 text-white px-4 py-2 rounded">
-  Iniciar sesión con Google
-</a>
-
-
-
-  <button type="submit" class="submit-btn">Ingresar</button>
-</form>
-<% } else { %>
-<form id='formRegister' class="auth-form">
-  <h2>Crear Cuenta</h2>
-
-  <div class="form-group">
-    <label for="register-name">Nombre Completo</label>
-    <input 
-    type="text" 
-    id="username" 
-    name="username" 
-    required
-    placeholder="Juan Pérez"
-    >
-  </div>
-
-  <div class="form-group">
-    <label for="register-email">Correo Electrónico</label>
-    <input 
-    type="email" 
-    id="register-email" 
-    name="email" 
-    required
-    placeholder="tucorreo@ejemplo.com"
-    >
-  </div>
-
-  <div class="form-group">
-    <label for="register-password">Contraseña</label>
-    <input 
-    type="password" 
-    id="register-password" 
-    name="password_hash" 
-    required
-    placeholder="••••••••"
-    minlength="6"
-    >
-  </div>
-
-  <div class="form-group">
-    <label for="register-confirm">Confirmar Contraseña</label>
-    <input 
-    type="password" 
-    id="register-confirm" 
-    name="passwordHash" 
-    required
-    placeholder="••••••••"
-    >
-  </div>
-
-  <button type="submit" class="submit-btn">Registrarse</button>
-</form>
-<% } %>
-</div>
 
 <script>
   function switchForm(type) {

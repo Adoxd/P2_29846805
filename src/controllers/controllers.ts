@@ -190,7 +190,7 @@ class ContactsController {
     try {
       const contacts = await ContactosModel.getAllContacts();
       console.log("Datos a renderizar:", contacts);
-      res.render('contactos', { contacts, isAdmin: true });
+      res.render('contactos', { contacts, isAdmin: true,currentLocale: req.getLocale() || 'es'});
     } catch (error: any) {
       console.error('Error:', error);
       res.status(500).render('error', { message: 'Error al cargar contactos' });
@@ -273,18 +273,20 @@ class ContactsController {
     }
   }
 
-  async getPayment(req: Request, res: Response): Promise<void> {
-    try {
-      const datePayments = await ContactosModel.getAllPayments();
-      res.render('getPayments', { datePayments, isAdmin: true });
-    } catch (error: any) {
-      console.error('Error:', error);
-      res.status(500).render('error', { 
-        message: 'Error al obtener pagos',
-        error: error.message
-      });
-    }
+ async getPayment(req: Request, res: Response): Promise<void> {
+  try {
+    const datePayments = await ContactosModel.getAllPayments();
+    const locale = req.getLocale();
+    res.render('getPayments', {
+      datePayments,
+      isAdmin: true,
+      locale
+    });
+  } catch (error: any) {
+    console.error('Error:', error);
+    res.status(500).send(error);
   }
+}
 
   async getComentarios(req: Request, res: Response): Promise<void> {
     try {
