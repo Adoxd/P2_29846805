@@ -1,7 +1,6 @@
-import express, { Application, Request, Response, NextFunction } from 'express';
+import express, { Application, Request, Response, NextFunction ,RequestHandler} from 'express';
 import * as dotenv from 'dotenv';
 dotenv.config();
-
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import passport from '@config/passport.js';
@@ -9,18 +8,20 @@ import authRoutes from '@routes/auth.js';
 import mainRouter from '@routes/index.js';
 
 import path from 'path';
-import i18n from 'i18n';
+
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const i18n = require('i18n');
+
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app: Application = express();
 
-// ✅ Configurar el motor de vistas
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// ✅ Configurar i18n
 i18n.configure({
   locales: ['en', 'es'],
   directory: path.join(__dirname, '/locales'),
@@ -31,12 +32,10 @@ i18n.configure({
   updateFiles: false,
   objectNotation: true,
 });
-
-// ✅ Middlewares esenciales
 app.use(cookieParser());
-app.use(i18n.init);
+app.use(i18n.init as unknown as RequestHandler);
 
-// ✅ Middleware de sesión
+
 app.use(session({
   secret: process.env.SESSION_SECRET || 'tu_clave_secreta',
   resave: false,
@@ -93,7 +92,7 @@ app.use(authRoutes);
 
 // ✅ Página 404
 app.use((req: Request, res: Response) => {
-  res.status(404).render('404',{
+  res.status(404).render('error', {
     title: '404 - ' + res.__('general.error'),
     message: res.__('general.error')
   });
